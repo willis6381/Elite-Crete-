@@ -68,11 +68,11 @@ const S=(id,label,opts)=>({k:"s",id:id,label:label,opts:opts});
 let FR='<option value="0">0</option>';
 for(let n=1;n<16;n++)FR+='<option value="'+(n/16)+'">'+n+'/16</option>';
 const WASTE=[["1","none"],["1.05","5%"],["1.1","10%"]].map(o=>'<option value="'+o[0]+'">'+o[1]+'</option>').join("");
-const BARS=[[0.376,"#3"],[0.668,"#4"],[1.043,"#5"],[1.502,"#6"],[2.044,"#7"],[2.67,"#8"],[3.4,"#9"],[4.303,"#10"],[5.313,"#11"]];
+const BARS=[[0.617,"10 mm"],[0.888,"12 mm"],[1.39,"15 mm"],[2.47,"20 mm"],[3.85,"25 mm"]];
 const P=[
 {id:"cross",t:"Cross square",hint:"Both diagonals must match before you stake.",f:[D("cL","Length"),D("cW","Width")],r:[["xDiag","Cross square","big"],["xSqft","Square feet"],["xSqin","Square inches"],["xPer","Perimeter"]]},
 {id:"rebar",t:"Rebar",f:[D("rL","Grid length"),D("rW","Grid width"),N("rSp","Spacing o/c","18","in"),S("rBar","Bar size",BARS.map(b=>'<option value="'+b[0]+'">'+b[1]+'</option>').join("")),D("rRe","Reuse over")],r:[["bBuy","20 ft bars to buy","big"],["bLen","Bars lengthwise"],["bCro","Bars crosswise"],["bSlab","Length in the slab"],["bOff","Offcut per run"],["bReuse","Reusable offcut","good"],["bCov","Bars offcut covers"],["bWaste","Waste"],["bWt","Weight to haul"]]},
-{id:"pipe",t:"Floor pipe",f:[D("pL","Floor length"),D("pW","Floor width"),S("pPipe","Pipe",'<option value="12">1/2 in at 12 in o/c - 300 ft runs</option><option value="16">5/8 in at 16 in o/c - 400 ft runs</option>')],r:[["pOrder","Pipe to order","big"],["pLoops","Loops"],["pPorts","Manifold ports"],["pMan","Manifolds to buy"],["pCoilLen","Coil length"],["pCoils","Coils to buy"],["pAvg","Average loop"],["pMax","Max run for this pipe"]]},
+{id:"pipe",t:"Floor pipe",f:[D("pL","Floor length"),D("pW","Floor width"),S("pPipe","Pipe",'<option value="12">1/2 in at 12 in o/c - 600 ft coils</option><option value="16">5/8 in at 16 in o/c - 400 ft coils</option>')],r:[["pOrder","Pipe to order","big"],["pLoops","Loops"],["pPorts","Manifold ports"],["pMan","Manifolds to buy"],["pCoilLen","Coil length"],["pCoils","Coils to buy"],["pAvg","Average loop"],["pMax","Max run for this pipe"]]},
 {id:"mm",t:"mm to inch",f:[N("mMm","Millimeters","0","mm")],r:[["mFt","Feet and inches","big"],["m16","Inches nearest 1/16"],["mDec","Decimal inches"]]},
 {id:"gravel",t:"Gravel",f:[D("gL","Length"),D("gW","Width"),D("gD","Depth"),S("gWaste","Waste",WASTE)],r:[["gCy","Gravel needed","big"],["gCf","Cubic feet"],["gTon","Approx tons"],["gBags","Half cubic foot bags"]]},
 {id:"conc",t:"Concrete",f:[D("kL","Length"),D("kW","Width"),D("kT","Thickness"),S("kWaste","Waste",WASTE)],r:[["kCy","Concrete needed","big"],["kCf","Cubic feet"],["k80","80 lb bags"],["k60","60 lb bags"]]}
@@ -90,7 +90,7 @@ function ftin(x){if(!(x>0))return"\u2014";let a=Math.floor(x),b=Math.round((x-a)
 function calc(){
 const L=dv("cL"),W=dv("cW"),d=Math.hypot(L,W);
 $("xDiag").textContent=ftin(d);$("xSqft").textContent=F(L*W,2);$("xSqin").textContent=F(L*W*144,0);$("xPer").textContent=ftin(2*(L+W));
-const rl=dv("rL"),rw=dv("rW"),sp=f("rSp")||18,bar=f("rBar")||0.668,re=dv("rRe"),US=220/12;
+const rl=dv("rL"),rw=dv("rW"),sp=f("rSp")||18,bar=f("rBar")||0.617,re=dv("rRe"),US=220/12;
 const lenw=Math.ceil(rw*12/sp)+1,cro=Math.ceil(rl*12/sp)+1,runs=[];
 for(let i=0;i<lenw;i++)runs.push(rl);for(let i=0;i<cro;i++)runs.push(rw);
 let bars=0,slab=0,off=0,reu=0;
@@ -99,9 +99,9 @@ const cov=Math.floor(reu/US),buy=Math.max(0,bars-cov);
 $("bBuy").textContent=F(buy,0);$("bLen").textContent=F(lenw,0);$("bCro").textContent=F(cro,0);
 $("bSlab").textContent=F(slab,0)+" ft";$("bOff").textContent=F(runs.length?off/runs.length:0,1)+" ft";
 $("bReuse").textContent=F(reu,1)+" ft";$("bCov").textContent=F(cov,0);
-$("bWaste").textContent=F(Math.max(0,buy*20-slab),1)+" ft";$("bWt").textContent=F(buy*20*bar,0)+" lb";
+$("bWaste").textContent=F(Math.max(0,buy*20-slab),1)+" ft";$("bWt").textContent=F(buy*20*0.3048*bar,0)+" kg";
 const pl=dv("pL"),pw=dv("pW"),ps=f("pPipe")||12;
-const area=pl*pw,run=ps===16?400:300,spc=ps;
+const area=pl*pw,run=ps===16?400:600,spc=ps;
 const pipe=area*(12/spc)*1.1;
 const loops=Math.max(1,Math.ceil(pipe/run)),ports=loops,man=Math.ceil(ports/12),coils=Math.ceil(pipe/run);
 $("pOrder").textContent=F(pipe,0)+" ft";$("pLoops").textContent=F(loops,0);$("pPorts").textContent=F(ports,0);
@@ -114,7 +114,7 @@ const gcf=gL*gW*gD*gw;
 $("gCy").textContent=F(gcf/27,2)+" yd";$("gCf").textContent=F(gcf,1)+" ft";$("gTon").textContent=F(gcf/27*1.4,2)+" t";$("gBags").textContent=F(Math.ceil(gcf/0.5),0);
 const kL=dv("kL"),kW=dv("kW"),kT=dv("kT"),kw=f("kWaste")||1;
 const kcf=kL*kW*kT*kw;
-$("kCy").textContent=F(kcf/27,2)+" yd";$("kCf").textContent=F(kcf,1)+" ft";$("k80").textContent=F(Math.ceil(kcf/0.6),0);$("k60").textContent=F(Math.ceil(kcf/0.45),0);
+$("kCy").textContent=F(kcf*0.0283168,2)+" m\u00B3";$("kCf").textContent=F(kcf,1)+" ft";$("k80").textContent=F(Math.ceil(kcf/0.6),0);$("k60").textContent=F(Math.ceil(kcf/0.45),0);
 }
 let cur="cross",set=false;
 function show(id){cur=id;set=false;$("tabs").style.display="flex";$("gear").classList.remove("on");
@@ -142,6 +142,10 @@ $("sFile").onchange=e=>{const fl=e.target.files[0];if(!fl)return;const r=new Fil
 r.onload=()=>{try{localStorage.setItem(KL,r.result);applyLogo();toast("Logo saved")}catch(x){toast("Logo too big")}};r.readAsDataURL(fl)};
 $("sRem").onclick=()=>{try{localStorage.removeItem(KL)}catch(e){}applyLogo();toast("Logo removed")};
 document.querySelectorAll("input,select").forEach(e=>{e.oninput=calc;e.onchange=calc});
+document.querySelectorAll(".num").forEach(e=>{
+e.onfocus=()=>{if(e.value==="0")e.value=""};
+e.onblur=()=>{if(e.value===""){e.value="0";calc()}};
+});
 applyCo();applyLogo();calc();
 </script>
 </body>
