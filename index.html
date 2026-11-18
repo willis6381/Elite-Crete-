@@ -1,438 +1,150 @@
-<!
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f1113">
-<title>Elite Crete — Takeoff</title>
+<title>Elite Crete Takeoff</title>
 <style>
-:root{
-  --bg:#0f1113;--panel:#171a1e;--panel2:#1d2227;--line:#2b3138;
-  --ink:#eceeef;--mut:#8b949e;--acc:#f5a524;--ok:#3fb950;--bad:#e5534b;
-}
+:root{--b:#0f1113;--p:#171a1e;--p2:#1d2227;--l:#2b3138;--t:#eceeef;--m:#8b949e;--a:#f5a524;--o:#3fb950}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--ink)}
-body{
-  font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  padding-bottom:calc(90px + env(safe-area-inset-bottom));
-}
-.wrap{max-width:520px;margin:0 auto;padding:0 14px}
-
-header{
-  position:sticky;top:0;z-index:30;
-  background:rgba(15,17,19,.94);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line);
-  padding:calc(10px + env(safe-area-inset-top)) 14px 10px;
-}
+body{margin:0;background:var(--b);color:var(--t);font:16px/1.45 -apple-system,system-ui,sans-serif;padding-bottom:84px}
+header{position:sticky;top:0;z-index:9;background:#0f1113f2;border-bottom:1px solid var(--l);padding:calc(8px + env(safe-area-inset-top)) 14px 10px}
 .bar{display:flex;align-items:center;gap:10px;max-width:520px;margin:0 auto}
-#logoBox{
-  width:44px;height:44px;flex:0 0 44px;border-radius:10px;
-  border:1px solid var(--line);background:var(--panel2);
-  display:grid;place-items:center;overflow:hidden;font-size:17px;color:var(--mut)
-}
-#logoBox img{width:100%;height:100%;object-fit:cover}
-.brand{flex:1;min-width:0}
-#coName{font-size:16px;font-weight:700;letter-spacing:.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-#coTag{font-size:11.5px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.iconBtn{
-  width:38px;height:38px;flex:0 0 38px;border-radius:10px;
-  border:1px solid var(--line);background:var(--panel2);color:var(--ink);
-  font-size:16px;display:grid;place-items:center;cursor:pointer
-}
-.iconBtn:active{background:var(--line)}
-
-nav{display:flex;gap:7px;overflow-x:auto;padding:11px 0 2px;scrollbar-width:none}
+#lg{width:44px;height:44px;flex:0 0 44px;border-radius:10px;border:1px solid var(--l);background:var(--p2);display:grid;place-items:center;overflow:hidden;font-size:15px;color:var(--m)}
+#lg img{width:100%;height:100%;object-fit:cover}
+.b{flex:1;min-width:0}
+#n{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#g{font-size:11.5px;color:var(--m);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#gear{width:38px;height:38px;flex:0 0 38px;border-radius:10px;border:1px solid var(--l);background:var(--p2);color:var(--t);font-size:16px}
+nav{display:flex;gap:7px;overflow-x:auto;padding-top:10px;max-width:520px;margin:0 auto;scrollbar-width:none}
 nav::-webkit-scrollbar{display:none}
-nav button{
-  flex:0 0 auto;padding:8px 13px;border-radius:999px;
-  border:1px solid var(--line);background:var(--panel);color:var(--mut);
-  font-size:13.5px;font-weight:600;cursor:pointer;white-space:nowrap
-}
-nav button.on{background:var(--acc);border-color:var(--acc);color:#1a1200}
-
-main{padding-top:16px}
-.pane{display:none}
-.pane.on{display:block}
-
-.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
-.card h2{margin:0 0 12px;font-size:13px;font-weight
+nav button{flex:0 0 auto;padding:8px 13px;border-radius:99px;border:1px solid var(--l);background:var(--p);color:var(--m);font:600 13px inherit;white-space:nowrap}
+nav .on{background:var(--a);border-color:var(--a);color:#1a1200}
+main{max-width:520px;margin:0 auto;padding:14px}
+.pane{display:none}.pane.on{display:block}
+.card{background:var(--p);border:1px solid var(--l);border-radius:14px;padding:14px;margin-bottom:12px}
+h2{margin:0 0 12px;font:700 12px inherit;letter-spacing:1px;text-transform:uppercase;color:var(--m)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid.one{grid-template-columns:1fr}
+label{display:block;font-size:11px;font-weight:600;color:var(--m);margin-bottom:4px}
+input,select{width:100%;padding:11px;border-radius:9px;border:1px solid var(--l);background:var(--p2);color:var(--t);font:600 16px inherit;-webkit-appearance:none;appearance:none}
+input:focus,select:focus{outline:none;border-color:var(--a)}
+.out{background:var(--p);border:1px solid var(--l);border-radius:14px;overflow:hidden;margin-bottom:12px}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:11px 14px;border-bottom:1px solid var(--l)}
+.row:last-child{border:0}
+.row span{font-size:13px;color:var(--m)}
+.row b{font-variant-numeric:tabular-nums}
+.big b{font-size:20px;color:var(--a)}
+.ok b{color:var(--o)}
+.btn{flex:1;padding:13px;border-radius:11px;border:1px solid var(--l);background:var(--p2);color:var(--t);font:700 14px inherit}
+.btn.primary{background:var(--a);border-color:var(--a);color:#1a1200}
+footer{position:fixed;left:0;right:0;bottom:0;z-index:9;background:#0f1113fa;border-top:1px solid var(--l);padding:10px 14px calc(10px + env(safe-area-inset-bottom))}
+footer .btn{display:block;width:100%;max-width:520px;margin:0 auto;padding:14px;font-size:15px}
+#sw{position:fixed;inset:0;z-index:60;display:none}
+#sw.on{display:block}
+#sc{position:absolute;inset:0;background:#000a}
+#sh{position:absolute;left:0;right:0;bottom:0;background:var(--p);border-radius:18px 18px 0 0;padding:16px 14px calc(24px + env(safe-area-inset-bottom));max-height:88vh;overflow:auto}
+#sh h3{margin:0 0 4px;font-size:17px}
+#sh p{margin:0 0 12px;font-size:12px;color:var(--m)}
+.act{display:flex;gap:9px;margin-top:12px}
+#tt{position:fixed;left:50%;bottom:80px;transform:translateX(-50%);background:var(--o);color:#05230d;font:800 13px inherit;padding:9px 18px;border-radius:99px;opacity:0;transition:.2s;z-index:80;pointer-events:none}
+#tt.on{opacity:1}
+</style>
 </head>
 <body>
-
 <header>
-  <div class="bar">
-    <div id="logoBox">EC</div>
-    <div class="brand">
-      <div id="coName">Elite Crete</div>
-      <div id="coTag">From form to finish</div>
-    </div>
-    <button class="iconBtn" id="gearBtn" aria-label="Settings">&#9881;</button>
-  </div>
-  <nav>
-    <button class="on" data-pane="cross">Cross Square</button>
-    <button data-pane="rebar">Rebar</button>
-    <button data-pane="pipe">Floor Pipe</button>
-    <button data-pane="gravel">Gravel</button>
-    <button data-pane="conc">Concrete</button>
-  </nav>
+<div class="bar">
+<div id="lg">EC</div>
+<div class="b"><div id="n">Elite Crete</div><div id="g">From form to finish</div></div>
+<button id="gear">&#9881;</button>
+</div>
+<nav id="nav"></nav>
 </header>
-
-<main class="wrap">
-
-  <section class="pane on" id="cross">
-    <div class="card">
-      <h2>Cross Square</h2>
-      <div class="grid">
-        <div><label>Length (ft)</label><input type="number" id="cL" inputmode="decimal" value="20"></div>
-        <div><label>Width (ft)</label><input type="number" id="cW" inputmode="decimal" value="20"></div>
-        <div><label>Number of squares</label><input type="number" id="cN" inputmode="numeric" value="1"></div>
-      </div>
-    </div>
-    <div class="out">
-      <div class="row big"><span>Diagonal</span><b id="cDiag">—</b></div>
-      <div class="row"><span>Diagonal in inches</span><b id="cDiagIn">—</b></div>
-      <div class="row ok"><span>Total diagonal run</span><b id="cTot">—</b></div>
-    </div>
-  </section>
-
-  <section class="pane" id="rebar">
-    <div class="card">
-      <h2>Rebar</h2>
-      <div class="grid">
-        <div><label>Length (ft)</label><input type="number" id="rL" inputmode="decimal" value="20"></div>
-        <div><label>Width (ft)</label><input type="number" id="rW" inputmode="decimal" value="20"></div>
-        <div><label>Spacing (in o/c)</label><input type="number" id="rSp" inputmode="decimal" value="18"></div>
-        <div><label>Bar size</label>
-          <select id="rBar">
-            <option value="0.5">#4 (1/2")</option>
-            <option value="0.625">#5 (5/8")</option>
-            <option value="0.75">#6 (3/4")</option>
-          </select>
-        </div>
-        <div><label>Reuse threshold (ft)</label><input type="number" id="rReuse" inputmode="decimal" value="10"></div>
-      </div>
-    </div>
-    <div class="out">
-      <div class="row"><span>Runs each way</span><b id="rRuns">—</b></div>
-      <div class="row"><span>Total linear feet</span><b id="rLF">—</b></div>
-      <div class="row big"><span>20 ft bars needed</span><b id="rBars">—</b></div>
-      <div class="row ok"><span>With reuse of scraps</span><b id="rReuseOut">—</b></div>
-      <div class="row"><span>600 ft coils</span><b id="rC600">—</b></div>
-      <div class="row"><span>400 ft coils</span><b id="rC400">—</b></div>
-    </div>
-  </section>
-
-  <section class="pane" id="pipe">
-    <div class="card">
-      <h2>Floor Pipe</h2>
-      <div class="grid">
-        <div><label>Length (ft)</label><input type="number" id="pL" inputmode="decimal" value="20"></div>
-        <div><label>Width (ft)</label><input type="number" id="pW" inputmode="decimal" value="20"></div>
-        <div><label>Spacing</label>
-          <select id="pOC">
-            <option value="12">12 in o/c — 1/2" pipe</option>
-            <option value="16">16 in o/c — 5/8" pipe</option>
-          </select>
-        </div>
-        <div><label>Coil size</label>
-          <select id="pCoil">
-            <option value="600">600 ft</option>
-            <option value="400">400 ft</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div class="out">
-      <div class="row"><span>Pipe size</span><b id="pSize">—</b></div>
-      <div class="row"><span>Runs</span><b id="pRuns">—</b></div>
-      <div class="row big"><span>Total linear feet</span><b id="pLF">—</b></div>
-      <div class="row ok"><span>Coils needed</span><b id="pCoils">—</b></div>
-    </div>
-  </section>
-
-  <section class="pane" id="gravel">
-    <div class="card">
-      <h2>Gravel</h2>
-      <div class="grid">
-        <div><label>Length (ft)</label><input type="number" id="gL" inputmode="decimal" value="20"></div>
-        <div><label>Width (ft)</label><input type="number" id="gW" inputmode="decimal" value="20"></div>
-        <div><label>Depth (in)</label><input type="number" id="gD" inputmode="decimal" value="4"></div>
-      </div>
-    </div>
-    <div class="out">
-      <div class="row big"><span>Cubic yards</span><b id="gCY">—</b></div>
-      <div class="row"><span>Tons (approx)</span><b id="gTon">—</b></div>
-      <div class="row ok"><span>With 10% compaction</span><b id="gCYw">—</b></div>
-    </div>
-  </section>
-
-  <section class="pane" id="conc">
-    <div class="card">
-      <h2>Concrete</h2>
-      <div class="grid">
-        <div><label>Length (ft)</label><input type="number" id="kL" inputmode="decimal" value="20"></div>
-        <div><label>Width (ft)</label><input type="number" id="kW" inputmode="decimal" value="20"></div>
-        <div><label>Thickness (in)</label><input type="number" id="kT" inputmode="decimal" value="4"></div>
-        <div><label>Waste %</label><input type="number" id="kWaste" inputmode="decimal" value="5"></div>
-      </div>
-    </div>
-    <div class="out">
-      <div class="row big"><span>Cubic yards</span><b id="kCY">—</b></div>
-      <div class="row ok"><span>With waste</span><b id="kCYw">—</b></div>
-      <div class="row"><span>C
-      <script>
+<main id="main"></main>
+<footer><button class="btn primary" id="shareBtn">Share takeoff</button></footer>
+<div id="sw"><div id="sc"></div><div id="sh">
+<h3>Company settings</h3><p>Saved on this phone only.</p>
+<div class="grid one">
+<div><label>Company</label><input id="sName"></div>
+<div><label>Tagline</label><input id="sTag"></div>
+<div><label>Phone</label><input id="sPhone"></div>
+<div><label>Email</label><input id="sEmail"></div>
+<div><label>Logo</label><input type="file" id="sLogo" accept="image/*"></div>
+</div>
+<div class="act"><button class="btn" id="sClose">Close</button><button class="btn primary" id="sSave">Save</button></div>
+</div></div>
+<div id="tt">Copied</div>
+<script>
 "use strict";
-const $ = id => document.getElementById(id);
-const num = id => parseFloat($(id).value) || 0;
-const f0 = x => (isFinite(x) ? x : 0).toFixed(0);
-const f1 = x => (isFinite(x) ? x : 0).toFixed(1);
-const f2 = x => (isFinite(x) ? x : 0).toFixed(2);
-
-const BAR_FT = 20;
-const LAP_IN = 20;
-const USABLE = (BAR_FT * 12 - LAP_IN) / 12;   // 18.33 ft of usable bar
-
-function ftin(x) {
-  if (!isFinite(x) || x <= 0) return "—";
-  let ft = Math.floor(x);
-  let inch = Math.round((x - ft) * 12);
-  if (inch === 12) { ft += 1; inch = 0; }
-  return inch ? ft + "\u2032 " + inch + "\u2033" : ft + "\u2032";
+const $=id=>document.getElementById(id);
+const P=[
+{id:"cross",t:"Cross Square",f:[["cL","Length (ft)","n",20],["cW","Width (ft)","n",20],["cN","Squares","n",1]],r:[["cDiag","Diagonal","big"],["cDiagIn","Diagonal in inches",""],["cTot","Total diagonal run","ok"]]},
+{id:"rebar",t:"Rebar",f:[["rL","Length (ft)","n",20],["rW","Width (ft)","n",20],["rSp","Spacing (in o/c)","n",18],["rBar","Bar size","s",0.5,[["0.5","#4 (1/2 in)"],["0.625","#5 (5/8 in)"],["0.75","#6 (3/4 in)"]]],["rReuse","Reuse threshold (ft)","n",10]],r:[["rRuns","Runs each way",""],["rLF","Total linear feet",""],["rBars","20 ft bars needed","big"],["rReuseOut","With reuse of scraps","ok"],["rC600","600 ft coils",""],["rC400","400 ft coils",""]]},
+{id:"pipe",t:"Floor Pipe",f:[["pL","Length (ft)","n",20],["pW","Width (ft)","n",20],["pOC","Spacing","s",12,[["12","12 in o/c - 1/2 in pipe"],["16","16 in o/c - 5/8 in pipe"]]],["pCoil","Coil size","s",600,[["600","600 ft"],["400","400 ft"]]]],r:[["pSize","Pipe size",""],["pRuns","Runs",""],["pLF","Total linear feet","big"],["pCoils","Coils needed","ok"]]},
+{id:"gravel",t:"Gravel",f:[["gL","Length (ft)","n",20],["gW","Width (ft)","n",20],["gD","Depth (in)","n",4]],r:[["gCY","Cubic yards","big"],["gTon","Tons (approx)",""],["gCYw","With 10% compaction","ok"]]},
+{id:"conc",t:"Concrete",f:[["kL","Length (ft)","n",20],["kW","Width (ft)","n",20],["kT","Thickness (in)","n",4],["kWaste","Waste %","n",5]],r:[["kCY","Cubic yards","big"],["kCYw","With waste","ok"],["kCF","Cubic feet",""],["kB80","80 lb bags",""]]}
+];
+const fld=x=>x[2]==="s"
+?`<div><label>${x[1]}</label><select id="${x[0]}">${x[4].map(o=>`<option value="${o[0]}">${o[1]}</option>`).join("")}</select></div>`
+:`<div><label>${x[1]}</label><input type="number" inputmode="decimal" id="${x[0]}" value="${x[3]}"></div>`;
+$("nav").innerHTML=P.map((p,i)=>`<button data-p="${p.id}" class="${i?"":"on"}">${p.t}</button>`).join("");
+$("main").innerHTML=P.map((p,i)=>`<section class="pane${i?"":" on"}" id="${p.id}"><div class="card"><h2>${p.t}</h2><div class="grid">${p.f.map(fld).join("")}</div></div><div class="out">${p.r.map(r=>`<div class="row ${r[2]||""}"><span>${r[1]}</span><b id="${r[0]}">&#8212;</b></div>`).join("")}</div></section>`).join("");
+const v=id=>parseFloat($(id).value)||0;
+const F=(x,d)=>((isFinite(x)?x:0)).toFixed(d);
+const US=(20*12-20)/12;
+const ftin=x=>{if(!(x>0))return"\u2014";let f=Math.floor(x),i=Math.round((x-f)*12);if(i===12){f++;i=0}return i?f+"\u2032 "+i+"\u2033":f+"\u2032"};
+function up(){
+const L=v("cL"),W=v("cW"),N=Math.max(1,v("cN")),d=Math.hypot(L,W);
+$("cDiag").textContent=ftin(d);$("cDiagIn").textContent=F(d*12,1)+" in";$("cTot").textContent=ftin(d*N)+" ("+F(d*N,1)+" ft)";
+const a=v("rL"),b=v("rW"),s=v("rSp")||18,ru=v("rReuse");
+const ac=Math.ceil(b*12/s)+1,dn=Math.ceil(a*12/s)+1,pc=[];
+for(let i=0;i<ac;i++)pc.push(a);for(let i=0;i<dn;i++)pc.push(b);
+const lf=pc.reduce((x,y)=>x+y,0);
+let nb=0,sr=0;pc.forEach(l=>{if(l<=0)return;const k=Math.ceil(l/US);nb+=k;sr+=k*US-l});
+const sv=sr>=ru?Math.floor(sr/US):0;
+$("rRuns").textContent=ac+" \u00d7 "+dn;$("rLF").textContent=F(lf,0)+" ft";$("rBars").textContent=F(nb,0);
+$("rReuseOut").textContent=F(Math.max(0,nb-sv),0)+" (saves "+F(sv,0)+")";
+$("rC600").textContent=F(Math.ceil(lf/600),0);$("rC400").textContent=F(Math.ceil(lf/400),0);
+const pl=v("pL"),pw=v("pW"),po=v("pOC")||12,pco=v("pCoil")||600;
+const pa=Math.ceil(pw*12/po)+1,pd=Math.ceil(pl*12/po)+1,pt=pa*pl+pd*pw;
+$("pSize").textContent=po===16?"5/8 @ 16":"1/2 @ 12";
+$("pRuns").textContent=pa+" \u00d7 "+pd;$("pLF").textContent=F(pt,0)+" ft";$("pCoils").textContent=F(Math.ceil(pt/pco),0)+" \u00d7 "+pco+" ft";
+const gc=v("gL")*v("gW")*(v("gD")/12)/27;
+$("gCY").textContent=F(gc,2);$("gTon").textContent=F(gc*1.4,1);$("gCYw").textContent=F(gc*1.1,2);
+const cf=v("kL")*v("kW")*(v("kT")/12),cy=cf/27;
+$("kCF").textContent=F(cf,1);$("kCY").textContent=F(cy,2);$("kCYw").textContent=F(cy*(1+v("kWaste")/100),2);$("kB80").textContent=F(Math.ceil(cf/0.6),0);
 }
-
-function calcCross() {
-  const L = num("cL"), W = num("cW"), N = Math.max(1, num("cN") || 1);
-  const diag = Math.hypot(L, W);
-  $("cDiag").textContent = ftin(diag);
-  $("cDiagIn").textContent = f1(diag * 12) + " in";
-  $("cTot").textContent = ftin(diag * N) + "  (" + f1(diag * N) + " ft)";
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll("nav button").forEach(x=>x.classList.remove("on"));document.querySelectorAll(".pane").forEach(x=>x.classList.remove("on"));b.classList.add("on");$(b.dataset.p).classList.add("on")});
+document.querySelectorAll("input,select").forEach(e=>{e.oninput=up;e.onchange=up});
+const KC="jc_co",KL="jc_logo";
+const readCo=()=>{try{return JSON.parse(localStorage.getItem(KC))||{}}catch(e){return{}}};
+function applyCo(){const c=readCo();$("n").textContent=c.name||"Elite Crete";$("g").textContent=c.tag||"From form to finish"}
+function applyLogo(){const s=localStorage.getItem(KL);$("lg").innerHTML=s?'<img src="'+s+'" alt="">':"EC"}
+function openSheet(){const c=readCo();$("sName").value=c.name||"Elite Crete";$("sTag").value=c.tag||"From form to finish";$("sPhone").value=c.phone||"306-461-6381";$("sEmail").value=c.email||"Elitecrete33@gmail.com";$("sw").classList.add("on")}
+function closeSheet(){$("sw").classList.remove("on")}
+function toast(m){const t=$("tt");t.textContent=m;t.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("on"),1500)}
+function saveSheet(){const c={name:$("sName").value.trim()||"Elite Crete",tag:$("sTag").value.trim(),phone:$("sPhone").value.trim(),email:$("sEmail").value.trim()};try{localStorage.setItem(KC,JSON.stringify(c))}catch(e){}applyCo();closeSheet();toast("Saved")}
+$("gear").onclick=openSheet;$("sClose").onclick=closeSheet;$("sc").onclick=closeSheet;$("sSave").onclick=saveSheet;
+$("sLogo").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{localStorage.setItem(KL,r.result);applyLogo();toast("Logo saved")}catch(x){toast("Logo too big")}};r.readAsDataURL(f)};
+function buildText(){
+const p=document.querySelector(".pane.on"),c=readCo();
+const o=[(c.name||"Elite Crete")+(c.tag?" \u2014 "+c.tag:""),p.querySelector("h2").textContent,""];
+p.querySelectorAll(".grid>div").forEach(d=>{const l=d.querySelector("label"),i=d.querySelector("input,select");if(!l||!i)return;const x=i.tagName==="SELECT"?i.options[i.selectedIndex].text:i.value;if(x)o.push(l.textContent+": "+x)});
+o.push("");
+p.querySelectorAll(".row").forEach(r=>o.push(r.querySelector("span").textContent+": "+r.querySelector("b").textContent));
+const f=[c.phone,c.email].filter(Boolean).join(" \u00b7 ");
+if(f){o.push("");o.push(f)}
+return o.join("\n");
 }
-
-function calcRebar() {
-  const L = num("rL"), W = num("rW");
-  const sp = num("rSp") || 18;
-  const reuse = num("rReuse");
-
-  const across = Math.ceil((W * 12) / sp) + 1;
-  const down = Math.ceil((L * 12) / sp) + 1;
-
-  const pieces = [];
-  for (let i = 0; i < across; i++) pieces.push(L);
-  for (let i = 0; i < down; i++) pieces.push(W);
-
-  const totalLF = pieces.reduce((a, b) => a + b, 0);
-
-  let naive = 0, scrap = 0;
-  pieces.forEach(len => {
-    if (len <= 0) return;
-    const barsForPiece = Math.ceil(len / USABLE);
-    naive += barsForPiece;
-    scrap += barsForPiece * USABLE - len;
-  });
-
-  const usableScrap = scrap >= reuse ? scrap : 0;
-  const saved = Math.floor(usableScrap / USABLE);
-  const bars = Math.max(0, naive - saved);
-
-  $("rRuns").textContent = across + " \u00d7 " + down;
-  $("rLF").textContent = f0(totalLF) + " ft";
-  $("rBars").textContent = f0(naive);
-  $("rReuseOut").textContent = f0(bars) + "  (saves " + f0(saved) + ")";
-  $("rC600").textContent = f0(Math.ceil(totalLF / 600));
-  $("rC400").textContent = f0(Math.ceil(totalLF / 400));
+async function shareNow(){
+const t=buildText();
+if(navigator.share){try{await navigator.share({title:"Takeoff",text:t});return}catch(e){if(e.name==="AbortError")return}}
+try{await navigator.clipboard.writeText(t);toast("Copied")}
+catch(e){const a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();try{document.execCommand("copy");toast("Copied")}catch(x){toast("Copy failed")}a.remove()}
 }
-
-function calcPipe() {
-  const L = num("pL"), W = num("pW");
-  const sp = num("pOC") || 12;
-  const coil = num("pCoil") || 600;
-
-  const across = Math.ceil((W * 12) / sp) + 1;
-  const down = Math.ceil((L * 12) / sp) + 1;
-  const totalLF = across * L + down * W;
-
-  $("pSize").textContent = sp === 16 ? '5/8" @ 16" o/c' : '1/2" @ 12" o/c';
-  $("pRuns").textContent = across + " \u00d7 " + down;
-  $("pLF").textContent = f0(totalLF) + " ft";
-  $("pCoils").textContent = f0(Math.ceil(totalLF / coil)) + " \u00d7 " + coil + " ft";
-}
-
-function calcGravel() {
-  const L = num("gL"), W = num("gW"), D = num("gD");
-  const cy = (L * W * (D / 12)) / 27;
-  $("gCY").textContent = f2(cy);
-  $("gTon").textContent = f1(cy * 1.4);
-  $("gCYw").textContent = f2(cy * 1.1);
-}
-
-function calcConc() {
-  const L = num("kL"), W = num("kW"), T = num("kT"), w = num("kWaste");
-  const cf = L * W * (T / 12);
-  const cy = cf / 27;
-  $("kCF").textContent = f1(cf);
-  $("kCY").textContent = f2(cy);
-  $("kCYw").textContent = f2(cy * (1 + w / 100));
-  $("kB80").textContent = f0(Math.ceil(cf / 0.6));
-}
-
-function recalc() {
-  calcCross(); calcRebar(); calcPipe(); calcGravel(); calcConc();
-}
-
-document.querySelectorAll("nav button").forEach(b => {
-  b.addEventListener("click", () => {
-    document.querySelectorAll("nav button").forEach(x => x.classList.remove("on"));
-    document.querySelectorAll(".pane").forEach(x => x.classList.remove("on"));
-    b.classList.add("on");
-    $(b.dataset.pane).classList.add("on");
-  });
-});
-
-document.querySelectorAll("input,select").forEach(el => {
-  el.addEventListener("input", recalc);
-  el.addEventListener("change", recalc);
-});
-
-recalc();
-/* ---------- settings ---------- */
-const KEY_CO = "jc_co";
-const KEY_LOGO = "jc_logo";
-
-function readCo() {
-  try { return JSON.parse(localStorage.getItem(KEY_CO)) || {}; } catch (e) { return {}; }
-}
-
-function applyCo() {
-  const c = readCo();
-  $("coName").textContent = c.name || "Elite Crete";
-  $("coTag").textContent = c.tag || "From form to finish";
-}
-
-function applyLogo() {
-  const src = localStorage.getItem(KEY_LOGO);
-  const box = $("logoBox");
-  box.innerHTML = src ? '<img alt="logo" src="' + src + '">' : "EC";
-}
-
-function openSheet() {
-  const c = readCo();
-  $("sName").value = c.name || "Elite Crete";
-  $("sTag").value = c.tag || "From form to finish";
-  $("sPhone").value = c.phone || "306-461-6381";
-  $("sEmail").value = c.email || "Elitecrete33@gmail.com";
-  $("sheetWrap").classList.add("on");
-}
-
-function closeSheet() {
-  $("sheetWrap").classList.remove("on");
-}
-
-function saveSheet() {
-  const c = {
-    name: $("sName").value.trim() || "Elite Crete",
-    tag: $("sTag").value.trim(),
-    phone: $("sPhone").value.trim(),
-    email: $("sEmail").value.trim()
-  };
-  try { localStorage.setItem(KEY_CO, JSON.stringify(c)); } catch (e) {}
-  applyCo();
-  closeSheet();
-  toast("Saved");
-}
-
-$("gearBtn").addEventListener("click", openSheet);
-$("sClose").addEventListener("click", closeSheet);
-$("scrim").addEventListener("click", closeSheet);
-$("sSave").addEventListener("click", saveSheet);
-
-$("sLogo").addEventListener("change", e => {
-  const file = e.target.files && e.target.files[0];
-  if (!file) return;
-  const r = new FileReader();
-  r.onload = () => {
-    try {
-      localStorage.setItem(KEY_LOGO, r.result);
-      applyLogo();
-      toast("Logo saved");
-    } catch (err) {
-      toast("Logo too large");
-    }
-  };
-  r.readAsDataURL(file);
-});
-
-/* ---------- share ---------- */
-function toast(msg) {
-  const t = $("toast");
-  t.textContent = msg;
-  t.classList.add("on");
-  clearTimeout(toast._t);
-  toast._t = setTimeout(() => t.classList.remove("on"), 1600);
-}
-
-function buildText() {
-  const pane = document.querySelector(".pane.on");
-  const title = pane.querySelector(".card h2").textContent;
-  const c = readCo();
-  const lines = [];
-
-  lines.push((c.name || "Elite Crete") + (c.tag ? " — " + c.tag : ""));
-  lines.push(title + " takeoff");
-  lines.push("");
-
-  const inputs = [];
-  pane.querySelectorAll(".grid > div").forEach(d => {
-    const lab = d.querySelector("label");
-    const inp = d.querySelector("input,select");
-    if (!lab || !inp) return;
-    const v = inp.tagName === "SELECT"
-      ? inp.options[inp.selectedIndex].textContent
-      : inp.value;
-    if (v) inputs.push(lab.textContent + ": " + v);
-  });
-  if (inputs.length) { lines.push.apply(lines, inputs); lines.push(""); }
-
-  pane.querySelectorAll(".row").forEach(r => {
-    lines.push(r.querySelector("span").textContent + ": " + r.querySelector("b").textContent);
-  });
-
-  const foot = [c.phone, c.email].filter(Boolean).join(" · ");
-  if (foot) { lines.push(""); lines.push(foot); }
-
-  return lines.join("\n");
-}
-
-async function shareNow() {
-  const text = buildText();
-  if (navigator.share) {
-    try {
-      await navigator.share({ title: "Takeoff", text: text });
-      return;
-    } catch (err) {
-      if (err && err.name === "AbortError") return;
-    }
-  }
-  try {
-    await navigator.clipboard.writeText(text);
-    toast("Copied");
-  } catch (e) {
-    const ta = document.createElement("textarea");
-    ta.value = text;
-    ta.style.position = "fixed";
-    ta.style.opacity = "0";
-    document.body.appendChild(ta);
-    ta.select();
-    try { document.execCommand("copy"); toast("Copied"); }
-    catch (e2) { toast("Copy failed"); }
-    document.body.removeChild(ta);
-  }
-}
-
-$("shareBtn").addEventListener("click", shareNow);
-
-applyCo();
-applyLogo();
+$("shareBtn").onclick=shareNow;
+applyCo();applyLogo();up();
 </script>
 </body>
 </html>
