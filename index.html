@@ -103,7 +103,7 @@ $("bWaste").textContent=F(Math.max(0,buy*20-slab),1)+" ft";$("bWt").textContent=
 const pl=dv("pL"),pw=dv("pW"),ps=f("pPipe")||12;
 const area=pl*pw,run=ps===16?400:600,spc=ps;
 const pipe=area*(12/spc)*1.1;
-const loops=Math.max(1,Math.ceil(pipe/run)),ports=loops,man=Math.ceil(ports/12),coils=Math.ceil(pipe/run);
+const loops=Math.max(1,Math.ceil(pipe/run)),ports=loops,man=Math.ceil(ports/12),coils=Math.ceil(pipe/run/(ps===16?1:2));
 $("pOrder").textContent=F(pipe,0)+" ft";$("pLoops").textContent=F(loops,0);$("pPorts").textContent=F(ports,0);
 $("pMan").textContent=F(man,0);$("pCoilLen").textContent=run+" ft";$("pCoils").textContent=F(coils,0);
 $("pAvg").textContent=F(pipe/loops,0)+" ft";$("pMax").textContent=run+" ft";
