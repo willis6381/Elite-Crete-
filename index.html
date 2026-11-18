@@ -3,148 +3,146 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0f1113">
-<title>Elite Crete Takeoff</title>
+<meta name="theme-color" content="#121214">
+<title>Elite Crete</title>
 <style>
-:root{--b:#0f1113;--p:#171a1e;--p2:#1d2227;--l:#2b3138;--t:#eceeef;--m:#8b949e;--a:#f5a524;--o:#3fb950}
+:root{--bg:#121214;--card:#1b1b1e;--line:#2e2e33;--out:#17171a;--row:#26262b;--inp:#232328;--ibd:#34343a;--acc:#e07b1a;--big:#ffa23f;--mut:#a3a3a8;--ink:#f2f2f2;--ok:#5fce8a}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{margin:0;background:var(--b);color:var(--t);font:16px/1.45 -apple-system,system-ui,sans-serif;padding-bottom:84px}
-header{position:sticky;top:0;z-index:9;background:#0f1113f2;border-bottom:1px solid var(--l);padding:calc(8px + env(safe-area-inset-top)) 14px 10px}
-.bar{display:flex;align-items:center;gap:10px;max-width:520px;margin:0 auto}
-#lg{width:44px;height:44px;flex:0 0 44px;border-radius:10px;border:1px solid var(--l);background:var(--p2);display:grid;place-items:center;overflow:hidden;font-size:15px;color:var(--m)}
-#lg img{width:100%;height:100%;object-fit:cover}
-.b{flex:1;min-width:0}
-#n{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-#g{font-size:11.5px;color:var(--m);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-#gear{width:38px;height:38px;flex:0 0 38px;border-radius:10px;border:1px solid var(--l);background:var(--p2);color:var(--t);font-size:16px}
-nav{display:flex;gap:7px;overflow-x:auto;padding-top:10px;max-width:520px;margin:0 auto;scrollbar-width:none}
-nav::-webkit-scrollbar{display:none}
-nav button{flex:0 0 auto;padding:8px 13px;border-radius:99px;border:1px solid var(--l);background:var(--p);color:var(--m);font:600 13px inherit;white-space:nowrap}
-nav .on{background:var(--a);border-color:var(--a);color:#1a1200}
-main{max-width:520px;margin:0 auto;padding:14px}
-.pane{display:none}.pane.on{display:block}
-.card{background:var(--p);border:1px solid var(--l);border-radius:14px;padding:14px;margin-bottom:12px}
-h2{margin:0 0 12px;font:700 12px inherit;letter-spacing:1px;text-transform:uppercase;color:var(--m)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.grid.one{grid-template-columns:1fr}
-label{display:block;font-size:11px;font-weight:600;color:var(--m);margin-bottom:4px}
-input,select{width:100%;padding:11px;border-radius:9px;border:1px solid var(--l);background:var(--p2);color:var(--t);font:600 16px inherit;-webkit-appearance:none;appearance:none}
-input:focus,select:focus{outline:none;border-color:var(--a)}
-.out{background:var(--p);border:1px solid var(--l);border-radius:14px;overflow:hidden;margin-bottom:12px}
-.row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:11px 14px;border-bottom:1px solid var(--l)}
-.row:last-child{border:0}
-.row span{font-size:13px;color:var(--m)}
-.row b{font-variant-numeric:tabular-nums}
-.big b{font-size:20px;color:var(--a)}
-.ok b{color:var(--o)}
-.btn{flex:1;padding:13px;border-radius:11px;border:1px solid var(--l);background:var(--p2);color:var(--t);font:700 14px inherit}
-.btn.primary{background:var(--a);border-color:var(--a);color:#1a1200}
-footer{position:fixed;left:0;right:0;bottom:0;z-index:9;background:#0f1113fa;border-top:1px solid var(--l);padding:10px 14px calc(10px + env(safe-area-inset-bottom))}
-footer .btn{display:block;width:100%;max-width:520px;margin:0 auto;padding:14px;font-size:15px}
-#sw{position:fixed;inset:0;z-index:60;display:none}
-#sw.on{display:block}
-#sc{position:absolute;inset:0;background:#000a}
-#sh{position:absolute;left:0;right:0;bottom:0;background:var(--p);border-radius:18px 18px 0 0;padding:16px 14px calc(24px + env(safe-area-inset-bottom));max-height:88vh;overflow:auto}
-#sh h3{margin:0 0 4px;font-size:17px}
-#sh p{margin:0 0 12px;font-size:12px;color:var(--m)}
-.act{display:flex;gap:9px;margin-top:12px}
-#tt{position:fixed;left:50%;bottom:80px;transform:translateX(-50%);background:var(--o);color:#05230d;font:800 13px inherit;padding:9px 18px;border-radius:99px;opacity:0;transition:.2s;z-index:80;pointer-events:none}
+body{margin:0 auto;max-width:560px;background:var(--bg);color:var(--ink);font:15px/1.4 Inter,system-ui,-apple-system,sans-serif;padding:14px 14px 34px}
+.top{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+#brandImg{height:54px;width:54px;object-fit:contain;border-radius:9px}
+.txt{flex:1;min-width:0}
+.nm{font-size:19px;font-weight:600;letter-spacing:.3px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tg{font-size:11px;color:var(--mut);margin-top:3px}
+.gear{width:34px;height:34px;border-radius:9px;border:1px solid var(--line);background:var(--card);color:var(--mut);font-size:15px}
+.gear.on{border-color:var(--acc);color:var(--acc)}
+.tabs{display:flex;gap:6px;overflow-x:auto;border-bottom:1px solid var(--row);padding-bottom:9px;margin-bottom:12px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;font-size:13px;padding:7px 11px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:#d8d8dc;white-space:nowrap}
+.tab.on{background:var(--acc);border-color:var(--acc);color:#121214;font-weight:600}
+.pane{display:none}
+.pane.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+.dim{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px dashed var(--line);padding:9px 0}
+.dim:last-child{border-bottom:0}
+.dim label{font-size:13px;color:var(--mut)}
+.d3{display:flex;align-items:center;gap:4px;font-size:11px;color:#86868d}
+.num{width:50px;text-align:right;font:16px ui-monospace,Menlo,monospace;padding:7px 6px;border-radius:7px;background:var(--inp);border:1px solid var(--ibd);color:var(--ink);-webkit-appearance:none;appearance:none}
+select.num{width:66px;text-align:left;font-size:13px}
+.out{background:var(--out);border:1px solid var(--line);border-radius:12px;margin-top:12px;overflow:hidden}
+.orow{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:10px 12px;border-bottom:1px solid var(--row)}
+.orow:last-child{border-bottom:0}
+.orow span{font-size:12.5px;color:var(--mut)}
+.oval{font:17px ui-monospace,Menlo,monospace}
+.oval.big{font-size:27px;color:var(--big)}
+.oval.good{color:var(--ok)}
+.oval.dim{font-size:13px;color:var(--mut)}
+.hint{font-size:11px;color:#8b8b92;margin-top:10px}
+.mini{font-size:12px;padding:9px 12px;border-radius:8px;border:1px solid var(--ibd);background:var(--card);color:var(--ink)}
+.mini.pri{background:var(--acc);border-color:var(--acc);color:#121214;font-weight:600}
+.row2{display:flex;gap:8px;margin-top:12px}
+#logoPrev{width:66px;height:66px;border-radius:8px;object-fit:cover;border:1px solid var(--line);background:var(--inp)}
+.wide{width:100%;padding:10px;border-radius:8px;background:var(--inp);border:1px solid var(--ibd);color:var(--ink);font-size:15px;font-family:inherit}
+#tt{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ok);color:#06230f;font-size:13px;font-weight:700;padding:9px 16px;border-radius:99px;opacity:0;transition:.2s;pointer-events:none}
 #tt.on{opacity:1}
 </style>
 </head>
 <body>
-<header>
-<div class="bar">
-<div id="lg">EC</div>
-<div class="b"><div id="n">Elite Crete</div><div id="g">From form to finish</div></div>
-<button id="gear">&#9881;</button>
+<div class="top">
+<img id="brandImg" src="IMG_5391.jpeg" alt="Elite Crete">
+<div class="txt"><div class="nm" id="nm">Elite Crete</div><div class="tg" id="tg">From form to finish</div></div>
+<button class="gear" id="gear">&#9881;</button>
 </div>
-<nav id="nav"></nav>
-</header>
-<main id="main"></main>
-<footer><button class="btn primary" id="shareBtn">Share takeoff</button></footer>
-<div id="sw"><div id="sc"></div><div id="sh">
-<h3>Company settings</h3><p>Saved on this phone only.</p>
-<div class="grid one">
-<div><label>Company</label><input id="sName"></div>
-<div><label>Tagline</label><input id="sTag"></div>
-<div><label>Phone</label><input id="sPhone"></div>
-<div><label>Email</label><input id="sEmail"></div>
-<div><label>Logo</label><input type="file" id="sLogo" accept="image/*"></div>
-</div>
-<div class="act"><button class="btn" id="sClose">Close</button><button class="btn primary" id="sSave">Save</button></div>
-</div></div>
-<div id="tt">Copied</div>
+<div class="tabs" id="tabs"></div>
+<div id="panes"></div>
+<div id="tt">Saved</div>
 <script>
 "use strict";
-const $=id=>document.getElementById(id);
+const $=i=>document.getElementById(i);
+const f=i=>{const e=$(i);return e?parseFloat(e.value)||0:0};
+const fx=x=>(isFinite(x)?x:0);
+const F=(x,d)=>fx(x).toFixed(d);
+const D=(id,label)=>({k:"d",id:id,label:label});
+const N=(id,label,val,unit)=>({k:"n",id:id,label:label,val:val,unit:unit||""});
+const S=(id,label,opts)=>({k:"s",id:id,label:label,opts:opts});
+let FR='<option value="0">0</option>';
+for(let n=1;n<16;n++)FR+='<option value="'+(n/16)+'">'+n+'/16</option>';
+const WASTE=[["1","none"],["1.05","5%"],["1.1","10%"]].map(o=>'<option value="'+o[0]+'">'+o[1]+'</option>').join("");
+const BARS=[[0.376,"#3"],[0.668,"#4"],[1.043,"#5"],[1.502,"#6"],[2.044,"#7"],[2.67,"#8"],[3.4,"#9"],[4.303,"#10"],[5.313,"#11"]];
 const P=[
-{id:"cross",t:"Cross Square",f:[["cL","Length (ft)","n",20],["cW","Width (ft)","n",20],["cN","Squares","n",1]],r:[["cDiag","Diagonal","big"],["cDiagIn","Diagonal in inches",""],["cTot","Total diagonal run","ok"]]},
-{id:"rebar",t:"Rebar",f:[["rL","Length (ft)","n",20],["rW","Width (ft)","n",20],["rSp","Spacing (in o/c)","n",18],["rBar","Bar size","s",0.5,[["0.5","#4 (1/2 in)"],["0.625","#5 (5/8 in)"],["0.75","#6 (3/4 in)"]]],["rReuse","Reuse threshold (ft)","n",10]],r:[["rRuns","Runs each way",""],["rLF","Total linear feet",""],["rBars","20 ft bars needed","big"],["rReuseOut","With reuse of scraps","ok"],["rC600","600 ft coils",""],["rC400","400 ft coils",""]]},
-{id:"pipe",t:"Floor Pipe",f:[["pL","Length (ft)","n",20],["pW","Width (ft)","n",20],["pOC","Spacing","s",12,[["12","12 in o/c - 1/2 in pipe"],["16","16 in o/c - 5/8 in pipe"]]],["pCoil","Coil size","s",600,[["600","600 ft"],["400","400 ft"]]]],r:[["pSize","Pipe size",""],["pRuns","Runs",""],["pLF","Total linear feet","big"],["pCoils","Coils needed","ok"]]},
-{id:"gravel",t:"Gravel",f:[["gL","Length (ft)","n",20],["gW","Width (ft)","n",20],["gD","Depth (in)","n",4]],r:[["gCY","Cubic yards","big"],["gTon","Tons (approx)",""],["gCYw","With 10% compaction","ok"]]},
-{id:"conc",t:"Concrete",f:[["kL","Length (ft)","n",20],["kW","Width (ft)","n",20],["kT","Thickness (in)","n",4],["kWaste","Waste %","n",5]],r:[["kCY","Cubic yards","big"],["kCYw","With waste","ok"],["kCF","Cubic feet",""],["kB80","80 lb bags",""]]}
+{id:"cross",t:"Cross square",hint:"Both diagonals must match before you stake.",f:[D("cL","Length"),D("cW","Width")],r:[["xDiag","Cross square","big"],["xSqft","Square feet"],["xSqin","Square inches"],["xPer","Perimeter"]]},
+{id:"rebar",t:"Rebar",f:[D("rL","Grid length"),D("rW","Grid width"),N("rSp","Spacing o/c","18","in"),S("rBar","Bar size",BARS.map(b=>'<option value="'+b[0]+'">'+b[1]+'</option>').join("")),D("rRe","Reuse over")],r:[["bBuy","20 ft bars to buy","big"],["bLen","Bars lengthwise"],["bCro","Bars crosswise"],["bSlab","Length in the slab"],["bOff","Offcut per run"],["bReuse","Reusable offcut","good"],["bCov","Bars offcut covers"],["bWaste","Waste"],["bWt","Weight to haul"]]},
+{id:"pipe",t:"Floor pipe",f:[D("pL","Floor length"),D("pW","Floor width"),S("pPipe","Pipe",'<option value="12">1/2 in at 12 in o/c - 300 ft runs</option><option value="16">5/8 in at 16 in o/c - 400 ft runs</option>')],r:[["pOrder","Pipe to order","big"],["pLoops","Loops"],["pPorts","Manifold ports"],["pMan","Manifolds to buy"],["pCoilLen","Coil length"],["pCoils","Coils to buy"],["pAvg","Average loop"],["pMax","Max run for this pipe"]]},
+{id:"mm",t:"mm to inch",f:[N("mMm","Millimeters","0","mm")],r:[["mFt","Feet and inches","big"],["m16","Inches nearest 1/16"],["mDec","Decimal inches"]]},
+{id:"gravel",t:"Gravel",f:[D("gL","Length"),D("gW","Width"),D("gD","Depth"),S("gWaste","Waste",WASTE)],r:[["gCy","Gravel needed","big"],["gCf","Cubic feet"],["gTon","Approx tons"],["gBags","Half cubic foot bags"]]},
+{id:"conc",t:"Concrete",f:[D("kL","Length"),D("kW","Width"),D("kT","Thickness"),S("kWaste","Waste",WASTE)],r:[["kCy","Concrete needed","big"],["kCf","Cubic feet"],["k80","80 lb bags"],["k60","60 lb bags"]]}
 ];
-const fld=x=>x[2]==="s"
-?`<div><label>${x[1]}</label><select id="${x[0]}">${x[4].map(o=>`<option value="${o[0]}">${o[1]}</option>`).join("")}</select></div>`
-:`<div><label>${x[1]}</label><input type="number" inputmode="decimal" id="${x[0]}" value="${x[3]}"></div>`;
-$("nav").innerHTML=P.map((p,i)=>`<button data-p="${p.id}" class="${i?"":"on"}">${p.t}</button>`).join("");
-$("main").innerHTML=P.map((p,i)=>`<section class="pane${i?"":" on"}" id="${p.id}"><div class="card"><h2>${p.t}</h2><div class="grid">${p.f.map(fld).join("")}</div></div><div class="out">${p.r.map(r=>`<div class="row ${r[2]||""}"><span>${r[1]}</span><b id="${r[0]}">&#8212;</b></div>`).join("")}</div></section>`).join("");
-const v=id=>parseFloat($(id).value)||0;
-const F=(x,d)=>((isFinite(x)?x:0)).toFixed(d);
-const US=(20*12-20)/12;
-const ftin=x=>{if(!(x>0))return"\u2014";let f=Math.floor(x),i=Math.round((x-f)*12);if(i===12){f++;i=0}return i?f+"\u2032 "+i+"\u2033":f+"\u2032"};
-function up(){
-const L=v("cL"),W=v("cW"),N=Math.max(1,v("cN")),d=Math.hypot(L,W);
-$("cDiag").textContent=ftin(d);$("cDiagIn").textContent=F(d*12,1)+" in";$("cTot").textContent=ftin(d*N)+" ("+F(d*N,1)+" ft)";
-const a=v("rL"),b=v("rW"),s=v("rSp")||18,ru=v("rReuse");
-const ac=Math.ceil(b*12/s)+1,dn=Math.ceil(a*12/s)+1,pc=[];
-for(let i=0;i<ac;i++)pc.push(a);for(let i=0;i<dn;i++)pc.push(b);
-const lf=pc.reduce((x,y)=>x+y,0);
-let nb=0,sr=0;pc.forEach(l=>{if(l<=0)return;const k=Math.ceil(l/US);nb+=k;sr+=k*US-l});
-const sv=sr>=ru?Math.floor(sr/US):0;
-$("rRuns").textContent=ac+" \u00d7 "+dn;$("rLF").textContent=F(lf,0)+" ft";$("rBars").textContent=F(nb,0);
-$("rReuseOut").textContent=F(Math.max(0,nb-sv),0)+" (saves "+F(sv,0)+")";
-$("rC600").textContent=F(Math.ceil(lf/600),0);$("rC400").textContent=F(Math.ceil(lf/400),0);
-const pl=v("pL"),pw=v("pW"),po=v("pOC")||12,pco=v("pCoil")||600;
-const pa=Math.ceil(pw*12/po)+1,pd=Math.ceil(pl*12/po)+1,pt=pa*pl+pd*pw;
-$("pSize").textContent=po===16?"5/8 @ 16":"1/2 @ 12";
-$("pRuns").textContent=pa+" \u00d7 "+pd;$("pLF").textContent=F(pt,0)+" ft";$("pCoils").textContent=F(Math.ceil(pt/pco),0)+" \u00d7 "+pco+" ft";
-const gc=v("gL")*v("gW")*(v("gD")/12)/27;
-$("gCY").textContent=F(gc,2);$("gTon").textContent=F(gc*1.4,1);$("gCYw").textContent=F(gc*1.1,2);
-const cf=v("kL")*v("kW")*(v("kT")/12),cy=cf/27;
-$("kCF").textContent=F(cf,1);$("kCY").textContent=F(cy,2);$("kCYw").textContent=F(cy*(1+v("kWaste")/100),2);$("kB80").textContent=F(Math.ceil(cf/0.6),0);
+function field(x){
+if(x.k==="d")return '<div class="dim"><label>'+x.label+'</label><div class="d3"><input class="num" id="'+x.id+'f" inputmode="decimal" value="0">ft<input class="num" id="'+x.id+'i" inputmode="decimal" value="0">in<select class="num" id="'+x.id+'q">'+FR+'</select></div></div>';
+if(x.k==="n")return '<div class="dim"><label>'+x.label+'</label><div class="d3"><input class="num" id="'+x.id+'" inputmode="decimal" value="'+x.val+'">'+x.unit+'</div></div>';
+return '<div class="dim"><label>'+x.label+'</label><div class="d3"><select class="num" id="'+x.id+'">'+x.opts+'</select></div></div>';
 }
-document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll("nav button").forEach(x=>x.classList.remove("on"));document.querySelectorAll(".pane").forEach(x=>x.classList.remove("on"));b.classList.add("on");$(b.dataset.p).classList.add("on")});
-document.querySelectorAll("input,select").forEach(e=>{e.oninput=up;e.onchange=up});
+const dv=id=>f(id+"f")+f(id+"i")/12+f(id+"q")/12;
+const setupPane='<section class="pane" id="setup"><div class="card"><div class="dim"><label>Company logo</label><img id="logoPrev" src="IMG_5391.jpeg" alt=""></div><div class="row2"><button class="mini" id="sUp">Upload logo</button><button class="mini" id="sRem">Remove</button></div><input type="file" id="sFile" accept="image/*" style="display:none"><div class="dim"><label>Company name</label><input class="wide" id="sName" style="width:52%"></div><div class="dim"><label>Tagline</label><input class="wide" id="sTag" style="width:52%"></div><div class="dim"><label>Phone</label><input class="wide" id="sPhone" type="tel" style="width:52%"></div><div class="dim"><label>License or email</label><input class="wide" id="sLic" style="width:52%"></div><div class="row2"><button class="mini pri" id="sSave">Save settings</button></div></div></section>';
+$("tabs").innerHTML=P.map((p,i)=>'<button class="tab'+(i?"":" on")+'" data-p="'+p.id+'">'+p.t+'</button>').join("");
+$("panes").innerHTML=P.map((p,i)=>'<section class="pane'+(i?"":" on")+'" id="'+p.id+'"><div class="card">'+p.f.map(field).join("")+'</div>'+(p.hint?'<div class="hint">'+p.hint+'</div>':"")+'<div class="out">'+p.r.map(r=>'<div class="orow"><span>'+r[1]+'</span><b class="oval '+(r[2]||"")+'" id="'+r[0]+'">&#8212;</b></div>').join("")+'</div></section>').join("")+setupPane;
+function ftin(x){if(!(x>0))return"\u2014";let a=Math.floor(x),b=Math.round((x-a)*12);if(b===12){a++;b=0}return b?a+"' "+b+'"':a+"'"}
+function calc(){
+const L=dv("cL"),W=dv("cW"),d=Math.hypot(L,W);
+$("xDiag").textContent=ftin(d);$("xSqft").textContent=F(L*W,2);$("xSqin").textContent=F(L*W*144,0);$("xPer").textContent=ftin(2*(L+W));
+const rl=dv("rL"),rw=dv("rW"),sp=f("rSp")||18,bar=f("rBar")||0.668,re=dv("rRe"),US=220/12;
+const lenw=Math.ceil(rw*12/sp)+1,cro=Math.ceil(rl*12/sp)+1,runs=[];
+for(let i=0;i<lenw;i++)runs.push(rl);for(let i=0;i<cro;i++)runs.push(rw);
+let bars=0,slab=0,off=0,reu=0;
+runs.forEach(x=>{if(x<=0)return;const k=Math.ceil(x/US);bars+=k;slab+=x;const o=k*US-x;off+=o;if(o>=re)reu+=o});
+const cov=Math.floor(reu/US),buy=Math.max(0,bars-cov);
+$("bBuy").textContent=F(buy,0);$("bLen").textContent=F(lenw,0);$("bCro").textContent=F(cro,0);
+$("bSlab").textContent=F(slab,0)+" ft";$("bOff").textContent=F(runs.length?off/runs.length:0,1)+" ft";
+$("bReuse").textContent=F(reu,1)+" ft";$("bCov").textContent=F(cov,0);
+$("bWaste").textContent=F(Math.max(0,buy*20-slab),1)+" ft";$("bWt").textContent=F(buy*20*bar,0)+" lb";
+const pl=dv("pL"),pw=dv("pW"),ps=f("pPipe")||12;
+const area=pl*pw,run=ps===16?400:300,spc=ps;
+const pipe=area*(12/spc)*1.1;
+const loops=Math.max(1,Math.ceil(pipe/run)),ports=loops,man=Math.ceil(ports/12),coils=Math.ceil(pipe/run);
+$("pOrder").textContent=F(pipe,0)+" ft";$("pLoops").textContent=F(loops,0);$("pPorts").textContent=F(ports,0);
+$("pMan").textContent=F(man,0);$("pCoilLen").textContent=run+" ft";$("pCoils").textContent=F(coils,0);
+$("pAvg").textContent=F(pipe/loops,0)+" ft";$("pMax").textContent=run+" ft";
+const mm=f("mMm"),inch=mm/25.4;
+$("mFt").textContent=ftin(inch/12);$("m16").textContent=F(Math.round(inch*16)/16,4)+" in";$("mDec").textContent=F(inch,4)+" in";
+const gL=dv("gL"),gW=dv("gW"),gD=dv("gD"),gw=f("gWaste")||1;
+const gcf=gL*gW*gD*gw;
+$("gCy").textContent=F(gcf/27,2)+" yd";$("gCf").textContent=F(gcf,1)+" ft";$("gTon").textContent=F(gcf/27*1.4,2)+" t";$("gBags").textContent=F(Math.ceil(gcf/0.5),0);
+const kL=dv("kL"),kW=dv("kW"),kT=dv("kT"),kw=f("kWaste")||1;
+const kcf=kL*kW*kT*kw;
+$("kCy").textContent=F(kcf/27,2)+" yd";$("kCf").textContent=F(kcf,1)+" ft";$("k80").textContent=F(Math.ceil(kcf/0.6),0);$("k60").textContent=F(Math.ceil(kcf/0.45),0);
+}
+let cur="cross",set=false;
+function show(id){cur=id;set=false;$("tabs").style.display="flex";$("gear").classList.remove("on");
+document.querySelectorAll(".pane").forEach(x=>x.classList.toggle("on",x.id===id));
+document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("on",t.dataset.p===id));}
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>show(t.dataset.p));
+$("gear").onclick=()=>{set=!set;
+document.querySelectorAll(".pane").forEach(x=>x.classList.toggle("on",x.id===(set?"setup":cur)));
+$("tabs").style.display=set?"none":"flex";$("gear").classList.toggle("on",set);if(set)loadSetup();};
 const KC="jc_co",KL="jc_logo";
 const readCo=()=>{try{return JSON.parse(localStorage.getItem(KC))||{}}catch(e){return{}}};
-function applyCo(){const c=readCo();$("n").textContent=c.name||"Elite Crete";$("g").textContent=c.tag||"From form to finish"}
-function applyLogo(){const s=localStorage.getItem(KL);$("lg").innerHTML=s?'<img src="'+s+'" alt="">':"EC"}
-function openSheet(){const c=readCo();$("sName").value=c.name||"Elite Crete";$("sTag").value=c.tag||"From form to finish";$("sPhone").value=c.phone||"306-461-6381";$("sEmail").value=c.email||"Elitecrete33@gmail.com";$("sw").classList.add("on")}
-function closeSheet(){$("sw").classList.remove("on")}
+function applyCo(){const c=readCo();
+$("nm").textContent=c.name||"Elite Crete";$("tg").textContent=c.tag||"From form to finish";
+document.title=(c.name||"Elite Crete");}
+function applyLogo(){const s=localStorage.getItem(KL);
+if(s){$("brandImg").src=s;$("logoPrev").src=s}else{$("brandImg").src="IMG_5391.jpeg";$("logoPrev").src="IMG_5391.jpeg"}}
+function loadSetup(){const c=readCo();
+$("sName").value=c.name||"Elite Crete";$("sTag").value=c.tag||"From form to finish";
+$("sPhone").value=c.phone||"306-461-6381";$("sLic").value=c.lic||"Elitecrete33@gmail.com";applyLogo();}
 function toast(m){const t=$("tt");t.textContent=m;t.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("on"),1500)}
-function saveSheet(){const c={name:$("sName").value.trim()||"Elite Crete",tag:$("sTag").value.trim(),phone:$("sPhone").value.trim(),email:$("sEmail").value.trim()};try{localStorage.setItem(KC,JSON.stringify(c))}catch(e){}applyCo();closeSheet();toast("Saved")}
-$("gear").onclick=openSheet;$("sClose").onclick=closeSheet;$("sc").onclick=closeSheet;$("sSave").onclick=saveSheet;
-$("sLogo").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{localStorage.setItem(KL,r.result);applyLogo();toast("Logo saved")}catch(x){toast("Logo too big")}};r.readAsDataURL(f)};
-function buildText(){
-const p=document.querySelector(".pane.on"),c=readCo();
-const o=[(c.name||"Elite Crete")+(c.tag?" \u2014 "+c.tag:""),p.querySelector("h2").textContent,""];
-p.querySelectorAll(".grid>div").forEach(d=>{const l=d.querySelector("label"),i=d.querySelector("input,select");if(!l||!i)return;const x=i.tagName==="SELECT"?i.options[i.selectedIndex].text:i.value;if(x)o.push(l.textContent+": "+x)});
-o.push("");
-p.querySelectorAll(".row").forEach(r=>o.push(r.querySelector("span").textContent+": "+r.querySelector("b").textContent));
-const f=[c.phone,c.email].filter(Boolean).join(" \u00b7 ");
-if(f){o.push("");o.push(f)}
-return o.join("\n");
-}
-async function shareNow(){
-const t=buildText();
-if(navigator.share){try{await navigator.share({title:"Takeoff",text:t});return}catch(e){if(e.name==="AbortError")return}}
-try{await navigator.clipboard.writeText(t);toast("Copied")}
-catch(e){const a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();try{document.execCommand("copy");toast("Copied")}catch(x){toast("Copy failed")}a.remove()}
-}
-$("shareBtn").onclick=shareNow;
-applyCo();applyLogo();up();
+$("sSave").onclick=()=>{const c={name:$("sName").value.trim()||"Elite Crete",tag:$("sTag").value.trim(),phone:$("sPhone").value.trim(),lic:$("sLic").value.trim()};
+try{localStorage.setItem(KC,JSON.stringify(c))}catch(e){}applyCo();toast("Saved")};
+$("sUp").onclick=()=>$("sFile").click();
+$("sFile").onchange=e=>{const fl=e.target.files[0];if(!fl)return;const r=new FileReader();
+r.onload=()=>{try{localStorage.setItem(KL,r.result);applyLogo();toast("Logo saved")}catch(x){toast("Logo too big")}};r.readAsDataURL(fl)};
+$("sRem").onclick=()=>{try{localStorage.removeItem(KL)}catch(e){}applyLogo();toast("Logo removed")};
+document.querySelectorAll("input,select").forEach(e=>{e.oninput=calc;e.onchange=calc});
+applyCo();applyLogo();calc();
 </script>
 </body>
 </html>
